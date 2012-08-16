@@ -16,6 +16,9 @@ cd /var/lib/gems/1.8/gems/rubygems-update-*
 ruby setup.rb
 gem install bundler
 
+# install git for microwave
+aptitude install -y git-core
+
 # aptitude cleanup
 aptitude clean
 
@@ -29,6 +32,5 @@ rm -rf /lib/udev/rules.d/75-persistent-net-generator.rules
 rm -f /var/lib/dhcp3/*
 
 # microwave
-cd /vagrant/provision
-bundle check || bundle --local --path vendor/bundle
-bundle exec chef-solo -c "config/solo.rb" -N localhost
+cd /vagrant
+bin/microwave
